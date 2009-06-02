@@ -5,7 +5,8 @@ object CreateTest {
    p("""
    CREATE table SIMPLE (
      ID integer(10),
-     name VARCHAR(255)
+     last_name VARCHAR(255),
+     first_name VARCHAR(255)
    );
    """)
   }
@@ -18,7 +19,5 @@ object CreateTest {
     
     val railsgen = new DDLParser with RailsModelGenerator
     println( railsgen.generate( railsgen.parse(sql) ) )
-    
-    
   }
 }

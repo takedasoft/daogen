@@ -2,24 +2,23 @@ package jp.takedasoft.core_extension
 
 class StringExt(s:String) {
   def camelize:String = {
-    s + "Camelized"
+    var result = ""
+    s.split("_").foreach( line => result += line.capitalize )
+    result
   }
   def underscore:String = {
-    s + "UserScored"
-  }
-  def toSetter:String = {
-    "set_" + s
-  }
-  def toGetter:String = {
-    "get_" + s
+    s + "_userScored"
   }
   def pluralize:String = {
      s + "s"
   }
-  def singulize:String = {
-     s + "-s"
+  def singularize:String = {
+     s.drop(s.length-1)
   }
-  def toPHPVar:String = {
-    "$" + s
+  def titleize:String = {
+    s.capitalize
+  }
+  def classify:String = {
+    s.capitalize
   }
 }
