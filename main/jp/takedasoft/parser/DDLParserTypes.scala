@@ -9,5 +9,6 @@ trait Parser[T] extends Parsers {
   def parse(s:String):ParseResult[T]
 }
 trait Generator[T] extends Parsers {
+  implicit def stringExt(s:String) = new jp.takedasoft.core_extension.StringExt(s)  
   def generate(parseResult:ParseResult[T]):Any
 }

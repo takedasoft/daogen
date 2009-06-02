@@ -1,10 +1,6 @@
 package jp.takedasoft.parser
 
-import scala.util.parsing.combinator._
-
 trait PHPDaoGenerator extends Generator[Create] {
-  implicit def stringExt(s:String) = new jp.takedasoft.core_extension.StringExt(s)
-  
   override def generate(result:ParseResult[Create]):String = {
     
     val create:Create = result.get

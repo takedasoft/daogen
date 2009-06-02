@@ -11,10 +11,14 @@ object CreateTest {
   }
 
   def p( sql:String ) {
-    val gen = new DDLParser with PHPDaoGenerator
     println( sql )
-    println( gen.parse(sql) )
-    println( gen.generate( gen.parse(sql) ) )
-
+    val phpgen = new DDLParser with PHPDaoGenerator
+    println( phpgen.parse(sql) )
+    println( phpgen.generate( phpgen.parse(sql) ) )
+    
+    val railsgen = new DDLParser with RailsModelGenerator
+    println( railsgen.generate( railsgen.parse(sql) ) )
+    
+    
   }
 }

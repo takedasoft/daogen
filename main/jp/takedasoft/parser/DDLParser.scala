@@ -9,6 +9,7 @@ class DDLParser extends Parser[Create] with JavaTokenParsers {
   def colOption:Parser[Number] = "(" ~ number ~ ")" ^^ { case a~num~b => num.toInt }
   def column:Parser[Column] = 
     identity ~ identity ~ opt( colOption ) ^^ { case name~stype~o => Column(name,stype,o) }
+  
   def columns:Parser[ List[Column] ] = "(" ~> repsep(column,",") <~ ");" ^^ { case l => l }
   def create:Parser[Create] =
     "create"~"table" ~ identity ~ columns ^^ { case c~t~name~cs => Create(name,cs) }
