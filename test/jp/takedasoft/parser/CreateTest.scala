@@ -5,7 +5,7 @@ object CreateTest {
    p("""
    CREATE table SIMPLE (
      ID integer(10),
-     name varchar(255)
+     name VARCHAR(255)
    );
    """)
   }
